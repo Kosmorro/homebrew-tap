@@ -1,0 +1,35 @@
+name: Test formulae install
+
+on:
+  push:
+    branches: [main]
+  
+  pull_request:
+    branches: [main]
+
+jobs:
+  run-tests:
+    name: Test install / ${{ matrix.formula.name }}
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        formula:
+          - name: "kosmorro"
+            test: "kosmorro --version"
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add tap
+        run: |
+          brew tap kosmorro/tap
+          rm -rf /opt/homebrew/Library/Taps/kosmorro/homebrew-tap
+          cp -r . /opt/homebrew/Library/Taps/kosmorro/homebrew-tap
+
+      - name: Install `${{ matrix.formula.name }}` formula
+        run: |
+          brew install ${{ matrix.formula.name }}
+
+      - name: Test that the program is working
+        run: |
+          ${{ matrix.formula.test }}
