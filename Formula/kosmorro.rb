@@ -5,11 +5,11 @@ class Kosmorro < Formula
   homepage "https://kosmorro.space"
   url "https://files.pythonhosted.org/packages/f7/88/c2f43399ef2ce583845b22406635134b4d3604aeb0c78d982455c5e5aab2/kosmorro-0.10.13.tar.gz"
   sha256 "ce1f05d8a5d002fb9111ae4de72f2361dc17ed3bc9894ec29f50afb27da51a2a"
+  revision 1
 
   depends_on "python@3.12"
   depends_on "numpy"
   depends_on "certifi"
-  depends_on "python-tabulate"
   depends_on "six"
 
   resource "Babel" do
@@ -23,13 +23,13 @@ class Kosmorro < Formula
   end
 
   resource "jplephem" do
-    url "https://files.pythonhosted.org/packages/74/f0/74ed1d5e0f31b736327aaebc61f008435f485a9ab2824a2868b3cf9cec3a/jplephem-2.21.tar.gz"
-    sha256 "34194b610695f21b89217b9852b8dabadbce80848cb369d9567ef12dc4828d55"
+    url "https://files.pythonhosted.org/packages/6d/e5/046f96d8699d2961fb71e28a81b25474d83ed54c5c1fb02033acf994b230/jplephem-2.22.tar.gz"
+    sha256 "0d9acc7217b4806feba93e72974ceead5611104bce6789af38d4f27dcf7a592c"
   end
 
   resource "kosmorrolib" do
-    url "https://files.pythonhosted.org/packages/8f/05/5e5062c7368bf49ef7437d07aac23038b11582ea2e869963056e91437768/kosmorrolib-1.0.10.tar.gz"
-    sha256 "2bcde95e5f1b97ab6a93f55a0633610b6df9e0b30527469693340c5a38ff6ddc"
+    url "https://files.pythonhosted.org/packages/ac/a0/d99aac197dce337ae25b86b2643a4629bb8e89991517085cef640fb9a24c/kosmorrolib-1.0.11.tar.gz"
+    sha256 "16a5657f3631a0510bc92b07d41ad22a3f62dff697219cb0469422bd4091de74"
   end
 
   resource "python-dateutil" do
@@ -43,13 +43,18 @@ class Kosmorro < Formula
   end
 
   resource "skyfield" do
-    url "https://files.pythonhosted.org/packages/8c/f7/0a115ca1d08815d3cd3cad151beaf62ff60812f82a57e1ffee8d2556338f/skyfield-1.46.tar.gz"
-    sha256 "27a54edbc46232a11019bcd88a9b74d36770aff26ff8ee631b90a81ba0be93e4"
+    url "https://files.pythonhosted.org/packages/25/3a/4abd429158980d639f474ba39c22ddd75f90be1d16b05361bef494518ecf/skyfield-1.49.tar.gz"
+    sha256 "20883027b2bbf4017dd916b64faaeb3713a8f88d7c8e353c15cd030ac63be92c"
   end
 
   resource "skyfield-data" do
-    url "https://files.pythonhosted.org/packages/c4/c8/3ade077a41bc4849cb92577c5d2c8ec85e9ada3488e7330f576cbb0b437c/skyfield-data-5.0.0.tar.gz"
-    sha256 "fe3484028cf96eb8040104d0626ec712f73e22e0f97a1eee62527207eead66c8"
+    url "https://files.pythonhosted.org/packages/55/46/bab75175ed6494d0e33d93b7745a2ff665576d3f9278a18172319892729d/skyfield-data-6.0.0.tar.gz"
+    sha256 "4e4f059c91f712b2d81d87288df04511a8154adb0044ebfc11365a689a53bcac"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
+    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
   end
 
   resource "termcolor" do
@@ -58,8 +63,8 @@ class Kosmorro < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
-    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
+    url "https://files.pythonhosted.org/packages/d3/20/b48f58857d98dcb78f9e30ed2cfe533025e2e9827bbd36ea0a64cc00cbc1/zipp-3.19.2.tar.gz"
+    sha256 "bf1dcf6450f873a13e952a29504887c89e6de7506209e5b1bcc3460135d4de19"
   end
 
 
