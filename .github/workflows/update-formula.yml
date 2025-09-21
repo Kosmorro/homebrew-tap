@@ -50,7 +50,7 @@ jobs:
           import re
           content = open('Formula/${{ matrix.formula }}.rb').read()
 
-          for resource in ['numpy', 'certifi', 'six']:
+          for resource in ['numpy', 'certifi']:
             content = re.sub(
                 rf'\\n\\n  resource \"{resource}\" do.*?end',
                 '',
