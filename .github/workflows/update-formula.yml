@@ -1,0 +1,42 @@
+name: Update formulae
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 12 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-formula:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        formula: ["kosmorro"]
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: |
+          brew tap kosmorro/tap
+          brew install kosmorro
+          brew update-python-resources ${{ matrix.formula }}
+
+      - uses: peter-evans/create-pull-request@v7
+        env:
+          TOKEN: ${{ secrets.KOSMORRO_TAP_UPDATE_WORKFLOW }}
+        with:
+          token: ${{ env.TOKEN }}
+          title: "Bump `${{ matrix.formula }}` formula"
+          commit-message: "Bump `${{ matrix.formula }}` formula"
+          branch: "update-formula/${{ matrix.formula }}"
+          body: |
+            Bumping `${{ matrix.formula }}` formula.
+            To check before merging:
+
+            - [ ] the name, description and homepage of the formula are still good
+            - [ ] the revision number is correct
+            - [ ] the test pass
