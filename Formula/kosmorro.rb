@@ -5,12 +5,11 @@ class Kosmorro < Formula
   homepage "https://kosmorro.space"
   url "https://files.pythonhosted.org/packages/f7/88/c2f43399ef2ce583845b22406635134b4d3604aeb0c78d982455c5e5aab2/kosmorro-0.10.13.tar.gz"
   sha256 "ce1f05d8a5d002fb9111ae4de72f2361dc17ed3bc9894ec29f50afb27da51a2a"
-  revision 1
+  revision 2
 
   depends_on "python@3.13"
   depends_on "numpy"
   depends_on "certifi"
-  depends_on "six"
 
   resource "babel" do
     url "https://files.pythonhosted.org/packages/7d/6b/d52e42361e1aa00709585ecc30b3f9684b3ab62530771402248b1b1d6240/babel-2.17.0.tar.gz"
@@ -40,6 +39,11 @@ class Kosmorro < Formula
   resource "sgp4" do
     url "https://files.pythonhosted.org/packages/6e/d0/fc467010d17742321f73b16a71acac88439a88f2b166641942a6566c9b2a/sgp4-2.25.tar.gz"
     sha256 "e19edc6dcc25d69fb8fde0a267b8f0c44d7e915c7bcbeacf5d3a8b595baf0674"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "skyfield" do
