@@ -1,0 +1,59 @@
+# Adapted from https://til.simonwillison.net/homebrew/auto-formulas-github-actions
+name: Update formulae
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-formula:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        formula: ["kosmorro"]
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip install ${{ matrix.formula }} homebrew-pypi-poet
+          poet -f ${{matrix.formula }} > Formula/${{ matrix.formula }}.rb
+          deactivate
+          rm -rf .venv
+
+      - run: |
+          python3 -c "
+          import re
+          content = open('Formula/${{ matrix.formula }}.rb').read()
+          content = re.sub(r'desc \"Shiny new formula\"', 'desc \"A program to calculate your ephemerides\"', content)
+          content = re.sub(r'homepage \"\"', 'homepage \"https://kosmorro.space\"', content)
+          content = re.sub(
+              r'test do.*?end',
+              'test do\\n    assert_match \"kosmorro \", shell_output(\"#{bin}/kosmorro --version\")\\n  end',
+              content,
+              flags=re.DOTALL
+          )
+          open('Formula/${{ matrix.formula }}.rb', 'w').write(content)
+          "
+          cat Formula/${{ matrix.formula }}.rb
+
+      - uses: peter-evans/create-pull-request@v7
+        env:
+          GITHUB_TOKEN: ${{ secrets.KOSMORRO_TAP_UPDATE_WORKFLOW }}
+        with:
+          title: "Bump `${{ matrix.formula }}` formula"
+          commit-message: "Bump `${{ matrix.formula }}` formula"
+          branch: "update-formula/${{ matrix.formula }}"
+          body: |
+            Bumping `${{ matrix.formula }}` formula.
+            To check before merging:
+
+            - [ ] the name, description and homepage of the formula are still good
+            - [ ] the revision number is correct
+            - [ ] the test pass
+
