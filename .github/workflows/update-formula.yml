@@ -1,0 +1,76 @@
+name: Update formulae
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 12 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-formula:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        formula: ["kosmorro"]
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Update resources
+        run: |
+          brew tap kosmorro/tap
+          brew update-python-resources ${{ matrix.formula }}
+          cp /opt/homebrew/Library/Taps/kosmorro/homebrew-tap/Formula/${{ matrix.formula }}.rb Formula/${{ matrix.formula }}.rb
+
+      - name: Update Python version
+        run: |
+          PYTHON_VERSION=$(curl https://endoflife.date/api/v1/products/python | jq -r '.result.releases | .[0] | .name')
+
+          python3 -c "
+          import re
+          content = open('Formula/${{ matrix.formula }}.rb').read()
+          content = re.sub(
+              r'depends_on \"python@3\\.[0-9]+\"',
+              'depends_on \"python@${PYTHON_VERSION}\"',
+              content,
+              flags=re.DOTALL
+          )
+
+          open('Formula/${{ matrix.formula }}.rb', 'w').write(content)
+          "
+
+      - name: Remove resources that are already in the package dependencies
+        run: |
+          python3 -c "
+          import re
+          content = open('Formula/${{ matrix.formula }}.rb').read()
+
+          for resource in ['numpy', 'certifi', 'six']:
+            content = re.sub(
+                rf'\\n\\n  resource \"{resource}\" do.*?end',
+                '',
+                content,
+                flags=re.DOTALL
+            )
+
+          open('Formula/${{ matrix.formula }}.rb', 'w').write(content)
+          "
+
+      - run: |
+          cat Formula/${{ matrix.formula }}.rb
+
+      - uses: peter-evans/create-pull-request@v7
+        env:
+          TOKEN: ${{ secrets.KOSMORRO_TAP_UPDATE_WORKFLOW }}
+        with:
+          token: ${{ env.TOKEN }}
+          title: "Bump `${{ matrix.formula }}` formula"
+          commit-message: "Bump `${{ matrix.formula }}` formula"
+          branch: "update-formula/${{ matrix.formula }}"
+          body: |
+            Bumping `${{ matrix.formula }}` formula with the last versions of the package and its dependencies.
