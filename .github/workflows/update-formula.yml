@@ -100,6 +100,7 @@ jobs:
           token: ${{ env.TOKEN }}
           title: "Bump `${{ matrix.formula }}` formula"
           commit-message: "Bump `${{ matrix.formula }}` formula"
+          reviewers: deuchnord
           branch: "update-formula/${{ matrix.formula }}"
           body: |
             Bumping `${{ matrix.formula }}` formula with the last versions of the package and its dependencies.
