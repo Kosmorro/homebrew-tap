@@ -61,6 +61,35 @@ jobs:
           open('Formula/${{ matrix.formula }}.rb', 'w').write(content)
           "
 
+      - id: check-changes
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update revision
+        if: steps.check-changes.outputs.changes == 'true'
+        run: |
+          python3 -c "
+          import re
+
+          content = open('Formula/${{ matrix.formula }}.rb').read()
+
+          match = re.search(r'^(revision\s+)(\d+)', content, re.MULTILINE)
+          revision = int(match.group(2)) + 1
+          
+          content = re.sub(
+              r'^(revision\s+)\d+',
+              rf'\1{new_value}',
+              content,
+              flags=re.MULTILINE
+          )
+
+          open('Formula/${{ matrix.formula }}.rb', 'w').write(content)
+          "
+
       - run: |
           cat Formula/${{ matrix.formula }}.rb
 
