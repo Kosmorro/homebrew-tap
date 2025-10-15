@@ -77,12 +77,12 @@ jobs:
 
           content = open('Formula/${{ matrix.formula }}.rb').read()
 
-          match = re.search(r'^(revision\s+)(\d+)', content, re.MULTILINE)
-          revision = int(match.group(2)) + 1
+          match = re.search(r'^  revision (\d+)', content, re.MULTILINE)
+          new_revision = int(match.group(1)) + 1
           
           content = re.sub(
-              r'^(revision\s+)\d+',
-              rf'\1{new_value}',
+              r'^  revision (\d)+',
+              rf'  revision {new_revision}',
               content,
               flags=re.MULTILINE
           )
