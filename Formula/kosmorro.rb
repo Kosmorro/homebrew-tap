@@ -5,7 +5,7 @@ class Kosmorro < Formula
   homepage "https://kosmorro.space"
   url "https://files.pythonhosted.org/packages/f7/88/c2f43399ef2ce583845b22406635134b4d3604aeb0c78d982455c5e5aab2/kosmorro-0.10.13.tar.gz"
   sha256 "ce1f05d8a5d002fb9111ae4de72f2361dc17ed3bc9894ec29f50afb27da51a2a"
-  revision 2
+  revision 3
 
   depends_on "certifi"
   depends_on "numpy"
@@ -27,8 +27,8 @@ class Kosmorro < Formula
   end
 
   resource "kosmorrolib" do
-    url "https://files.pythonhosted.org/packages/be/a7/1d82ad9712b74e39744e814c83cd7bd5fea6d6eec70bcfd2487aa47ecd6f/kosmorrolib-1.0.12.tar.gz"
-    sha256 "8c9da76165c91503406b2cae395236d37c3899c0116cd4e7e338e58643ef0cc7"
+    url "https://files.pythonhosted.org/packages/b0/04/699202c54fbcd60d8935a61faccb1ca4bcb2b5e53c13102ed476402e5f6f/kosmorrolib-1.0.13.tar.gz"
+    sha256 "d327a3f20f485e46f520c2c55d573fcbe804bdb40131946f815feabc8a964d39"
   end
 
   resource "python-dateutil" do
