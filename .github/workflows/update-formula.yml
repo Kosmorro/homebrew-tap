@@ -93,7 +93,7 @@ jobs:
       - run: |
           cat Formula/${{ matrix.formula }}.rb
 
-      - uses: peter-evans/create-pull-request@v7
+      - uses: peter-evans/create-pull-request@v8
         env:
           TOKEN: ${{ secrets.KOSMORRO_TAP_UPDATE_WORKFLOW }}
         with:
