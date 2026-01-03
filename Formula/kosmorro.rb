@@ -5,7 +5,7 @@ class Kosmorro < Formula
   homepage "https://kosmorro.space"
   url "https://files.pythonhosted.org/packages/8e/62/9c1f4377a50615be7046e3c6112ea7238bc5296d622946a3b360b6807765/kosmorro-1.0.1.tar.gz"
   sha256 "7eabe34410ace99d850786665276bf417ed33df998376adbc0af2d1c4431b873"
-  revision 4
+  revision 1
 
   depends_on "certifi"
   depends_on "numpy"
