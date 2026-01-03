@@ -19,7 +19,7 @@ jobs:
       matrix:
         formula: ["kosmorro"]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Update resources
         run: |
