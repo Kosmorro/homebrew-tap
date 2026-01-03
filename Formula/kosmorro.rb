@@ -3,8 +3,8 @@ class Kosmorro < Formula
 
   desc "Ephemerides calculation program"
   homepage "https://kosmorro.space"
-  url "https://files.pythonhosted.org/packages/f7/88/c2f43399ef2ce583845b22406635134b4d3604aeb0c78d982455c5e5aab2/kosmorro-0.10.13.tar.gz"
-  sha256 "ce1f05d8a5d002fb9111ae4de72f2361dc17ed3bc9894ec29f50afb27da51a2a"
+  url "https://files.pythonhosted.org/packages/8e/62/9c1f4377a50615be7046e3c6112ea7238bc5296d622946a3b360b6807765/kosmorro-1.0.1.tar.gz"
+  sha256 "7eabe34410ace99d850786665276bf417ed33df998376adbc0af2d1c4431b873"
   revision 4
 
   depends_on "certifi"
