@@ -5,11 +5,11 @@ class Kosmorro < Formula
   homepage "https://kosmorro.space"
   url "https://files.pythonhosted.org/packages/f7/88/c2f43399ef2ce583845b22406635134b4d3604aeb0c78d982455c5e5aab2/kosmorro-0.10.13.tar.gz"
   sha256 "ce1f05d8a5d002fb9111ae4de72f2361dc17ed3bc9894ec29f50afb27da51a2a"
-  revision 3
+  revision 4
 
   depends_on "certifi"
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "babel" do
     url "https://files.pythonhosted.org/packages/7d/6b/d52e42361e1aa00709585ecc30b3f9684b3ab62530771402248b1b1d6240/babel-2.17.0.tar.gz"
