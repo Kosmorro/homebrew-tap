@@ -5,7 +5,7 @@ class Kosmorro < Formula
   homepage "https://kosmorro.space"
   url "https://files.pythonhosted.org/packages/f7/88/c2f43399ef2ce583845b22406635134b4d3604aeb0c78d982455c5e5aab2/kosmorro-0.10.13.tar.gz"
   sha256 "ce1f05d8a5d002fb9111ae4de72f2361dc17ed3bc9894ec29f50afb27da51a2a"
-  revision 4
+  revision 5
 
   depends_on "certifi"
   depends_on "numpy"
@@ -47,8 +47,8 @@ class Kosmorro < Formula
   end
 
   resource "skyfield" do
-    url "https://files.pythonhosted.org/packages/2d/cb/0c9f9685f6ff3b9c268b1d995c584f0d09de160f46fbd6c1df0631565bfd/skyfield-1.53.tar.gz"
-    sha256 "24099855f3ba3906663ac1c10e650041e747680b986e807400eddedc0be4a8b4"
+    url "https://files.pythonhosted.org/packages/c9/8c/98bf5d9042218580fc10c4ba0c51b9af26bc73b614ce64341c0dfad39074/skyfield-1.54.tar.gz"
+    sha256 "bf8b79d6dbbe1add0327aca485d6388bb6a13cab70528d015913a9b07a1d6903"
   end
 
   resource "skyfield-data" do
