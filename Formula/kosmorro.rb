@@ -5,7 +5,7 @@ class Kosmorro < Formula
   homepage "https://kosmorro.space"
   url "https://files.pythonhosted.org/packages/8e/62/9c1f4377a50615be7046e3c6112ea7238bc5296d622946a3b360b6807765/kosmorro-1.0.1.tar.gz"
   sha256 "7eabe34410ace99d850786665276bf417ed33df998376adbc0af2d1c4431b873"
-  revision 1
+  revision 2
 
   depends_on "certifi"
   depends_on "numpy"
@@ -22,8 +22,8 @@ class Kosmorro < Formula
   end
 
   resource "jplephem" do
-    url "https://files.pythonhosted.org/packages/3c/42/0545c37e070e5f940eb52987fb25a351ab3c9327b40bab6ad3dd6125b2e1/jplephem-2.23.tar.gz"
-    sha256 "d3fb9477e4bf4c39d10497d4ff15e5271b7ac03fa101e1821aac527d646eccf9"
+    url "https://files.pythonhosted.org/packages/90/8b/a50514f000fcd0207cd281370b0db66e7712a5db9f96b77a0301a7205f96/jplephem-2.24.tar.gz"
+    sha256 "354fe1adae022264ab46f18afb6af26211277cfd7b3ef90400755fcabe93bc11"
   end
 
   resource "kosmorrolib" do
