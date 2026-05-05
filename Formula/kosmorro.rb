@@ -3,9 +3,9 @@ class Kosmorro < Formula
 
   desc "Ephemerides calculation program"
   homepage "https://kosmorro.space"
-  url "https://files.pythonhosted.org/packages/8e/62/9c1f4377a50615be7046e3c6112ea7238bc5296d622946a3b360b6807765/kosmorro-1.0.1.tar.gz"
-  sha256 "7eabe34410ace99d850786665276bf417ed33df998376adbc0af2d1c4431b873"
-  revision 3
+  url "https://files.pythonhosted.org/packages/b9/d4/d1eb23c106197b8743c676477f3869d357200418a08ce44837f3d79df781/kosmorro-1.0.2.tar.gz"
+  sha256 "4e5afe2d7b6b3e3f4aeaa27dba5f2983489b890e5aa58b463fde4228b00a1859"
+  revision 1
 
   depends_on "certifi"
   depends_on "numpy"
