@@ -5,7 +5,7 @@ class Kosmorro < Formula
   homepage "https://kosmorro.space"
   url "https://files.pythonhosted.org/packages/b9/d4/d1eb23c106197b8743c676477f3869d357200418a08ce44837f3d79df781/kosmorro-1.0.2.tar.gz"
   sha256 "4e5afe2d7b6b3e3f4aeaa27dba5f2983489b890e5aa58b463fde4228b00a1859"
-  revision 1
+  revision 2
 
   depends_on "certifi"
   depends_on "numpy"
@@ -37,8 +37,8 @@ class Kosmorro < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f8/bf/abbd3cdfb8fbc7fb3d4d38d320f2441b1e7cbe29be4f23797b4a2b5d8aac/pytz-2025.2.tar.gz"
-    sha256 "360b9e3dbb49a209c21ad61809c7fb453643e048b38924c765813546746e81c3"
+    url "https://files.pythonhosted.org/packages/ff/46/dd499ec9038423421951e4fad73051febaa13d2df82b4064f87af8b8c0c3/pytz-2026.2.tar.gz"
+    sha256 "0e60b47b29f21574376f218fe21abc009894a2321ea16c6754f3cad6eb7cdd6a"
   end
 
   resource "sgp4" do
@@ -62,8 +62,8 @@ class Kosmorro < Formula
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
-    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+    url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
+    sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   end
 
   resource "termcolor" do
